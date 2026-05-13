@@ -1,48 +1,38 @@
 ---
-import "../styles/global.css";
-import Nav from "../components/Nav.astro";
+import Layout from "../components/Layout.astro";
 import myIcon from "../assets/sleepy-frieren-icon.jpg";
-import cuhkIcon from "../assets/cuhk_emblem.svg";
 ---
 
-<html lang="en">
-	<head>
-		<title>My Homepage</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-	</head>
-	<body>
-		<Nav />
-		<main class="mx-auto px-6 py-12 max-w-2xl space-y-12">
-			<section id="profile" class="flex items-center gap-6">
-				<img
-					src={myIcon.src}
-					alt="My Icon"
-					class="w-20 h-20 rounded-full shrink-0 ring-1 ring-gray-200"
-				/>
-				<div>
-					<h1 class="text-xl font-semibold">Steven Po</h1>
-					<p class="text-gray-600 text-sm mt-1">Undergradate student at CUHK</p>
-					<p class="text-gray-600 text-sm">Majoring in Computer Science</p>
+<Layout title="About">
+	<main class="mx-auto px-6 py-12 max-w-2xl space-y-12">
+		<section id="profile" class="flex items-center gap-6">
+			<img
+				src={myIcon.src}
+				alt="My Icon"
+				class="w-20 h-20 rounded-full shrink-0 ring-1 ring-gray-200"
+			/>
+			<div>
+				<h1 class="text-xl font-semibold">Steven Po</h1>
+				<p class="text-gray-600 text-sm mt-1">Undergradate student at CUHK</p>
+				<p class="text-gray-600 text-sm">Majoring in Computer Science</p>
+			</div>
+		</section>
+		<section id="about">
+			<h2 class="text-lg font-semibold mb-2">About me</h2>
+			<p class="text-sm text-gray-600">I'm keen on exploring different areas of tech field. I believe hard work makes a difference.</p>
+		</section>
+		<section id="education">
+			<h2 class="text-lg font-semibold mb-3">Education</h2>
+			<dl class="space-y-2 text-sm text-gray-600 leading-relaxed">
+				<div class="flex gap-8">
+					<dt class="w-40 shrink-0 text-gray-400">2024-2028 (expected)</dt>
+					<dd>The Chinese University of Hong Kong</dd>
 				</div>
-			</section>
-			<section id="about">
-				<h2 class="text-lg font-semibold mb-2">About me</h2>
-				<p class="text-sm text-gray-600">I'm keen on exploring different areas of tech field. I believe hard work makes a difference.</p>
-			</section>
-			<section id="education">
-				<h2 class="text-lg font-semibold mb-3">Education</h2>
-				<dl class="space-y-2 text-sm text-gray-600 leading-relaxed">
-					<div class="flex gap-8">
-						<dt class="w-40 shrink-0 text-gray-400">2024-2028 (expected)</dt>
-						<dd>The Chinese University of Hong Kong</dd>
-					</div>
-					<div class="flex gap-8">
-						<dt class="w-40 shrink-0 text-gray-400">2018-2024</dt>
-						<dd>Cheung Chuk Shan College</dd>
-					</div>
-				</dl>
-			</section>
-		</main>
-	</body>
-</html>
+				<div class="flex gap-8">
+					<dt class="w-40 shrink-0 text-gray-400">2018-2024</dt>
+					<dd>Cheung Chuk Shan College</dd>
+				</div>
+			</dl>
+		</section>
+	</main>
+</Layout>
