@@ -1,28 +1,89 @@
 ---
-import '../styles/global.css'
-import myPhoto from '../assets/sleepy-frieren-icon.jpg';
+import "../styles/global.css";
+import myIcon from "../assets/sleepy-frieren-icon.jpg";
+import cuhkIcon from "../assets/cuhk_emblem.svg";
 ---
 
 <html lang="en">
-  <head>
-    <title>My Homepage</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-  <body>
-	<header class="container mx-auto p-10">
-		<img src={myPhoto.src} alt="sleep" class="border-1 float-left mr-6 mb-4 w-25 h-25 rounded-full"/>
-		<h1 class="text-2xl font-semibold">Steven Po</h1>
-		<p>Undergraduate Student of Chinese University of Hong Kong</p>
-		<p>Majoring in Computer Science</p>
-	</header>
-	<section id="about-me" class="container mx-auto p-6">
-		<h2 class="text-xl font-semibold">About me</h2>
-		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur deserunt numquam reprehenderit quae ipsum sequi corrupti incidunt laborum consequatur accusamus animi, asperiores sapiente doloribus optio. Dolor quia facere officia voluptatem!</p>
-	</section>
-	<section id="previous-works" class="container mx-auto p-6">
-		<h2 class="text-xl font-semibold">Previous works</h2>
-		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum aut labore iure accusantium a reiciendis ipsa, ex dolor? Laborum expedita amet officiis tempore, nostrum iste. Molestiae fuga porro consectetur est!</p>
-	</section>
-  </body>
+	<head>
+		<title>My Homepage</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	</head>
+	<body>
+		<header class="bg-white border-b border-gray-100 sticky top-0 z-50">
+			<nav
+				class="container mx-auto px-6 py-4 flex justify-between items-center"
+			>
+				<ul class="flex space-x-8 text-sm font-medium text-gray-600">
+					<li>
+						<a href="/" class="hover:text-blue-600 transition"
+							>About</a
+						>
+					</li>
+					<li>
+						<a
+							href="/projects"
+							class="hover:text-blue-600 transition">Projects</a
+						>
+					</li>
+					<li>
+						<a href="/blog" class="hover:text-blue-600 transition"
+							>Blog</a
+						>
+					</li>
+				</ul>
+
+				<a
+					href="/contact"
+					class="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition"
+				>
+					Contact
+				</a>
+			</nav>
+		</header>
+		<section id="profile" class="container mx-auto p-10">
+			<img
+				src={myIcon.src}
+				alt="My Icon"
+				class="border-1 float-left mr-6 mb-4 w-25 h-25 rounded-full"
+			/>
+			<h1 class="text-2xl font-semibold">Steven Po</h1>
+			<p>Undergraduate Student of Chinese University of Hong Kong</p>
+			<p>Majoring in Computer Science</p>
+		</section>
+		<section id="about" class="container mx-auto p-6">
+			<h2 class="text-xl font-semibold">About me</h2>
+			<p>
+				I'm a passionate learner striving to explore tech field. I
+				believe dedication is the way to success.
+			</p>
+		</section>
+		<!-- <section id="work-exp" class="container mx-auto p-6">
+			<h2 class="text-xl font-semibold">Working Experience</h2>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+				Nostrum aut labore iure accusantium a reiciendis ipsa, ex dolor?
+				Laborum expedita amet officiis tempore, nostrum iste. Molestiae
+				fuga porro consectetur est!
+			</p>s
+		</section> -->
+		<section id="education" class="container mx-auto p-6">
+			<h2 class="text-xl font-semibold">Education</h2>
+			<dl class="grid grid-cols-[250px_1fr] gap-y-2">
+				<dt>2024-2028 (expected)</dt>
+				<dd>
+					<!-- <img
+						src={cuhkIcon.src}
+						alt="CUHK Logo"
+						class="float-left mr-2 mb-2 w-10 h-10"
+					/> -->
+					The Chinese University of Hong Kong
+				</dd>
+
+				<dt>2018-2024</dt>
+				<dd>Cheung Chuk Shan College</dd>
+			</dl>
+		</section>
+	</body>
 </html>
