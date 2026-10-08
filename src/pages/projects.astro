@@ -1,0 +1,66 @@
+---
+import Layout from "../components/Layout.astro";
+
+// Placeholder projects — replace with real ones
+const projects = [
+  {
+    title: "Personal Website",
+    description: "This site. Built with Astro and Tailwind CSS, with a markdown-powered blog.",
+    tags: ["Astro", "Tailwind CSS", "TypeScript"],
+    year: "2026",
+    href: "https://github.com/dev-stevenp/personal-website",
+  },
+  {
+    title: "Campus Course Planner",
+    description: "A web app that helps students build conflict-free timetables from the course catalogue.",
+    tags: ["React", "Node.js", "PostgreSQL"],
+    year: "2025",
+    href: "#",
+  },
+  {
+    title: "Pathfinding Visualizer",
+    description: "Interactive visualization of BFS, DFS, Dijkstra and A* on a grid you can draw walls on.",
+    tags: ["JavaScript", "Canvas", "Algorithms"],
+    year: "2025",
+    href: "#",
+  },
+  {
+    title: "Tiny Shell",
+    description: "A minimal Unix shell in C supporting pipes, redirection and background jobs.",
+    tags: ["C", "Linux", "Systems"],
+    year: "2024",
+    href: "#",
+  },
+];
+---
+
+<Layout title="Projects">
+  <main class="mx-auto px-6 py-12 max-w-2xl">
+    <h1 class="text-2xl font-semibold mb-8">Projects</h1>
+    <ul class="space-y-4">
+      {projects.map((project) => (
+        <li>
+          <a
+            href={project.href}
+            target={project.href.startsWith("http") ? "_blank" : undefined}
+            rel={project.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            class="group block border border-gray-200 rounded-xl px-5 py-4 hover:border-gray-400 transition-colors"
+          >
+            <div class="flex items-baseline justify-between gap-4">
+              <span class="text-base font-medium group-hover:underline underline-offset-4">
+                {project.title}
+              </span>
+              <span class="text-sm text-gray-400 shrink-0">{project.year}</span>
+            </div>
+            <p class="mt-1 text-sm text-gray-500">{project.description}</p>
+            <ul class="mt-3 flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <li class="text-xs text-gray-600 bg-gray-100 rounded-md px-2 py-0.5">{tag}</li>
+              ))}
+            </ul>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </main>
+</Layout>

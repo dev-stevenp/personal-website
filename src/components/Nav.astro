@@ -11,11 +11,78 @@
 				<a href="/blog" class="hover:text-blue-600 transition">Blog</a>
 			</li>
 		</ul>
-		<a
-			href="/contact"
-			class="bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition"
-		>
-			Contact
-		</a>
+		<div class="relative" id="contact-menu">
+			<button
+				type="button"
+				id="contact-button"
+				aria-haspopup="true"
+				aria-expanded="false"
+				aria-controls="contact-dropdown"
+				class="flex items-center gap-1.5 bg-black text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-gray-800 transition cursor-pointer"
+			>
+				Contact
+				<svg id="contact-chevron" class="w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+					<path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd" />
+				</svg>
+			</button>
+			<div
+				id="contact-dropdown"
+				hidden
+				class="absolute right-0 mt-2 w-64 bg-white border border-gray-100 rounded-lg shadow-lg py-2"
+			>
+				<a
+					href="https://www.linkedin.com/in/steven-po/"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition group"
+				>
+					<svg class="w-5 h-5 shrink-0 text-[#0A66C2]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+						<path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z" />
+					</svg>
+					<span class="flex flex-col leading-tight">
+						<span class="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">LinkedIn</span>
+						<span class="text-xs text-gray-500">in/steven-po</span>
+					</span>
+				</a>
+				<a
+					href="mailto:devstevenp@gmail.com"
+					class="flex items-center gap-3 px-4 py-2 hover:bg-gray-50 transition group"
+				>
+					<svg class="w-5 h-5 shrink-0 text-gray-600 group-hover:text-blue-600 transition" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+						<path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.24a2.25 2.25 0 0 1-1.07 1.92l-7.5 4.61a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.92V6.75" />
+					</svg>
+					<span class="flex flex-col leading-tight">
+						<span class="text-sm font-medium text-gray-900 group-hover:text-blue-600 transition">Email</span>
+						<span class="text-xs text-gray-500">devstevenp@gmail.com</span>
+					</span>
+				</a>
+			</div>
+		</div>
 	</nav>
 </header>
+
+<script>
+	const menu = document.getElementById("contact-menu")!;
+	const button = document.getElementById("contact-button")!;
+	const dropdown = document.getElementById("contact-dropdown")!;
+	const chevron = document.getElementById("contact-chevron")!;
+
+	function setOpen(open: boolean) {
+		dropdown.hidden = !open;
+		button.setAttribute("aria-expanded", String(open));
+		chevron.classList.toggle("rotate-180", open);
+	}
+
+	button.addEventListener("click", () => setOpen(dropdown.hidden));
+
+	document.addEventListener("click", (e) => {
+		if (!menu.contains(e.target as Node)) setOpen(false);
+	});
+
+	document.addEventListener("keydown", (e) => {
+		if (e.key === "Escape" && !dropdown.hidden) {
+			setOpen(false);
+			button.focus();
+		}
+	});
+</script>
